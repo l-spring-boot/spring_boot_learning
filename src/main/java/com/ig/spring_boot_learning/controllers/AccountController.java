@@ -1,5 +1,6 @@
 package com.ig.spring_boot_learning.controllers;
 
+import com.ig.spring_boot_learning.annotations.logging.AuditFilter;
 import com.ig.spring_boot_learning.base.response.ObjectResponse;
 import com.ig.spring_boot_learning.base.response.PageResponse;
 import com.ig.spring_boot_learning.base.response.ResponseMessage;
@@ -34,6 +35,7 @@ public class AccountController {
     }
 
     @GetMapping(LIST)
+    @AuditFilter
     public PageResponse<AccountDto> getAccountListPage(
             @RequestParam(required = false) String query,
             @RequestParam(defaultValue = MAX_PAGE) int page,
